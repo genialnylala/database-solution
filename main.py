@@ -14,7 +14,7 @@ class User(db.Model):
     name = db.Column(db.String, unique=True)
     salary = db.Column(db.Integer, unique=False)
     password = db.Column(db.String, unique=False)
-    session_token = db.Column(db.Integer, unique=True)
+    session_token = db.Column(db.String, unique=True)
 
 db.create_all()
 
