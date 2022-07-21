@@ -14,7 +14,7 @@ class User(db.Model):
     name = db.Column(db.String, unique=True)
     salary = db.Column(db.Integer, unique=False)
     password = db.Column(db.String, unique=False)
-    session_token = db.Column(db.String, unique=True)
+    session_token = db.Column(db.String, unique=False)
 
 db.create_all()
 
@@ -36,7 +36,6 @@ def login():
         return "WRONG PASSWORD! Go back and try again."
     elif hashed_password == user.password:
         session_token = str(uuid.uuid4())
-        print("created session token:", session_token)
 
         user.session_token = session_token
         user.save()
